@@ -4,8 +4,10 @@ import tsconfigPaths from "vite-tsconfig-paths"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+
   plugins: [react(), tsconfigPaths()],
   server: {
+    force:true,
     proxy: {
       "/api": {
         target: "https://api.layerhub.pro",

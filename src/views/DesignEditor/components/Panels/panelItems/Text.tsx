@@ -274,6 +274,8 @@ export default function () {
   const setIsSidebarOpen = useSetIsSidebarOpen()
   const components = useSelector(selectPublicComponents)
 
+  // @ts-ignore
+  window.editor=editor;
   const handleChange = async (e) => {
     const { label } = e.target.value
     if (editor) {
@@ -373,6 +375,9 @@ export default function () {
     if (editor) {
       var grid = 10
       // create grid
+      // TODO: after everything else we'll be able to do this.
+      //   editor.objects.add({type:'GridObjet',gridsize:20})
+
       for (var i = 0; i < 500 / grid; i++) {
         editor.objects.add(
           new fabric.Line([i * grid, 0, i * grid, 500], {
